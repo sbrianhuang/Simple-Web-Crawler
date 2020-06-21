@@ -58,7 +58,6 @@ namespace Wesley.Crawler.SimpleCrawler
                     request.ServicePoint.ConnectionLimit = int.MaxValue;//定义最大连接数
 
                     using (var response = (HttpWebResponse)request.GetResponse()) {//获取请求响应
-
                         foreach (Cookie cookie in response.Cookies) this.CookiesContainer.Add(cookie);//将Cookie加入容器，保存登录状态
 
                         if (response.ContentEncoding.ToLower().Contains("gzip"))//解压
@@ -88,8 +87,7 @@ namespace Wesley.Crawler.SimpleCrawler
                             {
                                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                                 {
-
-                                    pageSource= reader.ReadToEnd();
+                                    pageSource = reader.ReadToEnd();
                                 }
                             }
                         }
